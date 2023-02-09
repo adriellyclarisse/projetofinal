@@ -11,6 +11,12 @@ public class Evento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Override
+	public String toString() {
+		return "Evento [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", servico="
+				+ servico + ", mensagem=" + mensagem + "]";
+	}
+
 	private String nome;
 	private String email;
 	private String telefone;
