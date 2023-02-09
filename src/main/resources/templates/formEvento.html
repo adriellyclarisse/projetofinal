@@ -5,8 +5,9 @@
 <title>Eventos</title>
 </head>
 <body>
-	<h1>Cadastre o seu evento!</h1>
-	<form action="">
+	<h1>Cadastre o seu evento :)</h1>
+	
+	<form action="/eventos" method="post" >
 
 		<div>
 			<label>Nome:</label> <input type="text" name="nome">
@@ -18,11 +19,19 @@
 			<label>Celular:</label> <input type="text" name="celular">
 		</div>
 		<div>
-			<label>Serviço:</label> <input type="text" name="servico">
+		<label>Serviço:</label>
+			<input type="radio" id="html" name="servico" value="HTML"> <label for="html">Casamento</label>
+			<input type="radio" id="html" name="servico" value="HTML"> <label for="html">Formatura</label>
+			<input type="radio" id="html" name="servico" value="HTML"> <label for="html">Aniversários</label>
+			<input type="radio" id="html" name="servico" value="HTML"> <label for="html">Eventos empresariais</label>
+			<input type="radio" id="html" name="servico" value="HTML"> <label for="html">Outros</label>
 		</div>
 		<div>
-		<button type="submit">Enviar cadastro!</button>
-		<button type="reset">Limpar seção!</button>
+		<label>Descreva em detalhes o seu evento: (Ex: número de convidados, local desejado, tema etc)</label> <input type="text" name="mensagem">
+		</div>
+		<div>
+		<button type="submit">Enviar cadastro</button>
+		<button type="reset">Limpar seção</button>
 		</div>
 	</form>
 </body>
