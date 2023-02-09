@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<title>Eventos</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+
+	<div class="container">
+
+		<h4>Relação de Eventos</h4>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Telefone</th>
+					<th>Serviço</th>
+					<th>Mensagem</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${eventos}">
+					<td th:text="${e.id}">1</td>
+					<td th:text="${e.nome}">Arthur</td>
+					<td th:text="${e.email}">adriellyclarisse2018@gmail.com</td>
+					<td th:text="${e.telefone}">84996103503</td>
+					<td th:text="${e.servico}">Aniversário</td>
+					<td th:text="${e.mensagem}">...</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
