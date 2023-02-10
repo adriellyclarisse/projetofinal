@@ -5,7 +5,8 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	 rel="stylesheet">
 <title>Eventos</title>
 </head>
 <body>
@@ -15,7 +16,8 @@
 
 		<h4>Relação de Eventos</h4>
 		
-		<table>
+				
+		<table class="highlight">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -34,6 +36,10 @@
 					<td th:text="${e.telefone}">84996103503</td>
 					<td th:text="${e.servico}">Aniversário</td>
 					<td th:text="${e.mensagem}">...</td>
+					<td>
+					<a th:href="@{/eventos/{id}/selecionar(id=${e.id})}"><i class="material-icons">edit</i></a>
+					<a th:href="@{/eventos/{id}/remover(id=${e.id})}"><i class="material-icons">delete_forever</i></a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
