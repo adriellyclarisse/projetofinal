@@ -21,66 +21,66 @@ import ifrn.pi.eventos.repositories.EventoRepository;
 @Controller
 @RequestMapping("/eventos")
 public class EventosController {
-	
+
 	@Autowired
 	private EventoRepository er;
-	
+
 	@GetMapping("/form")
 	public String form(Evento evento) {
 		return "eventos/formEvento";
 	}
-	
+
 	@PostMapping
 	public String salvar(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
-		
-		if(result.hasErrors()){
+
+		if (result.hasErrors()) {
 			return form(evento);
-			
+
 		}
-		
+
 		System.out.println(evento);
 		er.save(evento);
 		attributes.addFlashAttribute("mensagem", "Seu evento foi alterado com sucesso!");
-		
+
 		return "redirect:/eventos";
 	}
-	
+
 	@GetMapping
 	public ModelAndView listar() {
 		List<Evento> eventos = er.findAll();
 		ModelAndView mv = new ModelAndView("eventos/lista");
 		mv.addObject("eventos", eventos);
-		return mv;	
+		return mv;
 	}
-	
+
 	@GetMapping("/{id}")
 	public ModelAndView detalhar(@PathVariable Long id) {
 		ModelAndView md = new ModelAndView();
 		Optional<Evento> opt = er.findById(id);
-		
-		if(opt.isEmpty()) {
+
+		if (opt.isEmpty()) {
 			md.setViewName("redirect:/eventos");
 			return md;
-			
+
 		}
-		
+
 		md.setViewName("eventos/detalhes");
 		Evento evento = opt.get();
 		md.addObject("evento", evento);
-		
+
 		return md;
-		
+
 	}
-	
+
 	@GetMapping("/{id}/selecionar")
 	public ModelAndView selecionarEvento(@PathVariable Long id) {
 		ModelAndView md = new ModelAndView();
 		Optional<Evento> opt = er.findById(id);
-		if(opt.isEmpty()){
+		if (opt.isEmpty()) {
 			md.setViewName("redirect:/eventos");
 			return md;
 		}
-		
+
 		Evento evento = opt.get();
 		md.setViewName("eventos/formEvento");
 		md.addObject("evento", evento);
@@ -89,20 +89,19 @@ public class EventosController {
 
 	}
 
-	
 	@GetMapping("/{id}/remover")
 	public String apagarEvento(@PathVariable Long id, RedirectAttributes attributes) {
-		
+
 		Optional<Evento> opt = er.findById(id);
-		
-		if(!opt.isEmpty()) {
+
+		if (!opt.isEmpty()) {
 			Evento evento = opt.get();
 			er.delete(evento);
 			attributes.addFlashAttribute("mensgem", "Evento removido com sucesso!");
 		}
-		
+
 		return "redirect:/eventos";
-		
+
 	}
-	
+
 }

@@ -13,20 +13,34 @@
 	<div th:replace="~{menu :: menu}"></div>
 
 	<div class="container">
-
-		<h4>Detalhes do Evento</h4>
+	
+	<h4>Detalhes do Evento</h4>
 
 		<div class="row">
 			<div class="col s12">
-				<div class="teal lighten-4">
-					<div class="card-content black-text">
-						<span class="card-title">INFORMAÇÕES:</span>
-						<p><strong>Id: </strong><span th:text="${evento.id}">1</span></p>
-						<p><strong>Nome: </strong><span th:text="${evento.nome}">Athur</span></p>
-						<p><strong>Email: </strong><span th:text="${evento.email}">adriellyclarisse2018@gmail.com</span></p>
-						<p><strong>Telefone: </strong><span th:text="${evento.telefone}">84996103503</span></p>
-						<p><strong>Serviço: </strong><span th:text="${evento.servico}">Aniversário</span></p>
-						<p><strong>Mensagem: </strong><span th:text="${evento.mensagem}">...</span></p>
+				<div class="teal lighten-3">
+					<div class="container card-content black-text">
+						<span class="card-title">ㅤ</span>
+						<p>
+							<strong>Id: </strong><span th:text="${evento.id}">1</span>
+						</p>
+						<p>
+							<strong>Nome: </strong><span th:text="${evento.nome}">Athur</span>
+						</p>
+						<p>
+							<strong>Email: </strong><span th:text="${evento.email}">adriellyclarisse2018@gmail.com</span>
+						</p>
+						<p>
+							<strong>Telefone: </strong><span th:text="${evento.telefone}">84996103503</span>
+						</p>
+						<p>
+							<strong>Serviço: </strong><span th:text="${evento.servico}">Aniversário</span>
+						</p>
+						<p>
+							<strong>Mensagem: </strong><span th:text="${evento.mensagem}">...</span>
+						</p>
+						
+						<h4>ㅤ</h4>
 					</div>
 				</div>
 			</div>
