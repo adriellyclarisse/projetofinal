@@ -12,7 +12,7 @@ public class Evento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank
 	private String nome;
 	@NotBlank
@@ -23,7 +23,7 @@ public class Evento {
 	private String servico;
 	@NotBlank
 	private String mensagem;
-	
+
 	public Long getId() {
 		return id;
 	}

@@ -13,7 +13,7 @@
     
     <div class="container">
 	
-	<h4>Cadastre o seu evento :)</h4>
+	<h4>Cadastre seu evento :)</h4>
 	
 	<form action="/eventos" method="post" th:object="${evento}">
 
@@ -25,42 +25,42 @@
 		<p th:errors="*{nome}"></p>
 		</div>
 		<div>
-			<label>Email:</label> <input type="text" th:value="*{email}">
+			<label>Email:</label> <input type="text" th:field="*{email}">
 		<p th:errors="*{email}"></p>
 		</div>
 		<div>
-			<label>Telefone:</label> <input type="text" th:value="*{telefone}">
+			<label>Telefone:</label> <input type="text" th:field="*{telefone}">
 		<p th:errors="*{telefone}"></p>
 		</div>
 		<div>
 		<label>Serviços:</label>
 		<p>
       <label>
-        <input name="servico" type="radio" value="Casamento" />
+        <input name="servico" type="radio" value="Casamento">
         <span>Casamento</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="servico" type="radio" value="Formatura" />
+        <input name="servico" type="radio" value="Formatura">
         <span>Formatura</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="servico" type="radio" value="Aniversário" />
+        <input name="servico" type="radio" value="Aniversário">
         <span>Aniversário</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="servico" type="radio" value="Evento Empresarial" />
+        <input name="servico" type="radio" value="Evento Empresarial">
         <span>Evento Empresarial</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="servico" type="radio" value="Outro" />
+        <input name="servico" type="radio" value="Outro">
         <span>Outro</span>
       </label>
     </p>
