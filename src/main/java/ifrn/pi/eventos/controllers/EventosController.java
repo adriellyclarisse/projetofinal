@@ -40,9 +40,10 @@ public class EventosController {
 
 		System.out.println(evento);
 		er.save(evento);
-		attributes.addFlashAttribute("mensagem", "Seu evento foi alterado com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Evento salvo com sucesso!");
 
-		return "redirect:/eventos";
+		return "eventos/evento-adicionado";
+		
 	}
 
 	@GetMapping
@@ -97,7 +98,7 @@ public class EventosController {
 		if (!opt.isEmpty()) {
 			Evento evento = opt.get();
 			er.delete(evento);
-			attributes.addFlashAttribute("mensgem", "Evento removido com sucesso!");
+			attributes.addFlashAttribute("mensagem", "Evento removido com sucesso!");
 		}
 
 		return "redirect:/eventos";
