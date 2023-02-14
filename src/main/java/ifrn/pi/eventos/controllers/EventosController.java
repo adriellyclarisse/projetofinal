@@ -16,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ifrn.pi.eventos.models.Evento;
+import ifrn.pi.eventos.models.Resposta;
 import ifrn.pi.eventos.repositories.EventoRepository;
+import ifrn.pi.eventos.repositories.ServicoRepository;
 
 @Controller
 @RequestMapping("/eventos")
@@ -24,6 +26,8 @@ public class EventosController {
 
 	@Autowired
 	private EventoRepository er;
+	@Autowired
+	private ServicoRepository cr;
 
 	@GetMapping("/form")
 	public String form(Evento evento) {
@@ -68,6 +72,9 @@ public class EventosController {
 		md.setViewName("eventos/detalhes");
 		Evento evento = opt.get();
 		md.addObject("evento", evento);
+		
+		List<Resposta> serviço = cr.findByEvento(evento);
+		md.addObject("serviço", serviço);
 
 		return md;
 
@@ -88,6 +95,25 @@ public class EventosController {
 
 		return md;
 
+	}
+	
+	@PostMapping("/{idEvento}")
+	public String salvarResposta(@PathVariable Long idEvento, Resposta resposta ) {
+		
+		System.out.println("Id do evento: " + idEvento);
+		System.out.println(resposta);
+		
+		Optional<Evento> opt = er.findById(idEvento);
+		if(opt.isEmpty()) {
+			return "redirect:/eventos";
+		}
+		
+		Evento evento = opt.get();
+		resposta.setEvento(evento);
+		
+		cr.save(resposta);
+		
+		return "redirect:/eventos/{idEvento}";
 	}
 
 	@GetMapping("/{id}/remover")
