@@ -14,8 +14,8 @@
 	<div th:replace="~{menu :: menu}"></div>
 
 	<div class="container">
-	
-	<h4>Detalhes do Evento</h4>
+
+		<h4>Detalhes do Evento</h4>
 
 		<div class="row">
 			<div class="col s12">
@@ -35,18 +35,62 @@
 							<strong>Telefone: </strong><span th:text="${evento.telefone}">84996103503</span>
 						</p>
 						<p>
-							<strong>Serviço: </strong><span th:text="${evento.servico}">Aniversário</span>
+							<strong>Serviço: </strong><span th:text="${evento.servico}">84996103503</span>
 						</p>
 						<p>
 							<strong>Mensagem: </strong><span th:text="${evento.mensagem}">...</span>
 						</p>
-						
+
 						<h4>ㅤ</h4>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="teal lighten-3">
+					<div class="container card-content black-text">
+					<h4>ㅤ</h4>
+						<span class="card-title">Orçamento base:</span>
+						<table class="highlight">
+							<thead>
+								<tr>
+									<th>Valor</th>
+									<th>Evento</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Em média, R$1.800,00 (por estudante)</td>
+									<td>Formatura</td>
+								</tr>
+								<tr>
+									<td>Em média, R$20.000,00</td>
+									<td>Casamento</td>
+								</tr>
+								<tr>
+									<td>Em média, R$3.000,00</td>
+									<td>Aniversário</td>
+								</tr>
+								<tr>
+									<td>Em média, R$1.500,00</td>
+									<td>Evento Empresarial</td>
+								</tr>
+								<tr>
+									<td>Em média, R$800,00 (com base em 10 convidados)</td>
+									<td>Chá de Lingerie</td>
+								</tr>
+								<tr>
+									<td>Em média, R$1.100,00</td>
+									<td>Aula da Saudade</td>
+								</tr>
+							</tbody>
+						</table>
+						<h4>ㅤ</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
 </body>
 </html>
